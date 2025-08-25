@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stress, depression or burnout?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+        --AIMblue: #4353A3;
+        --darkBlue: #38416D;
+        --teal: #5DC8B9;
+        --cream: #F1EEDE;
+        --grey: #e7e9ec;
+        --rust: #AF4510;
+        --navy: #12195C;
+        --white: #ffffff;
+        --lightBlue: #AEBAE4;
+      }
+
+      body {
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+
+      table {
+        width: 100%;
+        margin:0;
+        padding:0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        text-align: left;
+      }
+
+      table tr {
+        border: 1px solid var(--AIMblue);
+        padding: 5px;
+      }
+
+      table th, table td {
+        border: 1px solid var(--AIMblue);
+        padding: 10px;
+      }
+
+      table th {
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        background-color: var(--darkBlue);
+        color: var(--white)
+      }
+      tr:nth-child(even) {
+  background-color: var(--grey); /*Grey of torment!*/
+} 
+
+      tr:nth-child(odd) {
+  background-color: white; 
+} 
+.tableMobile {
+  display: none;
+}
+
+      @media screen and (max-width: 500px) {
+
+        #tableWide {
+          display: none;
+        }
+        .tableMobile {
+          display: block;
+          width: 100%;
+        }
+      }
+
+  </style>
+  
+  </head>
+  <body>
+    <p>Chronic stress can lead to burnout and burnout can be a risk factor for depression. All can present with similar symptoms. Here are a few defining differences between these states.</p>
+    <table id="tableWide">
+      <thead>
+        <tr>
+          <th>Stress</th>
+          <th>Depression</th>
+          <th>Burnout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Stress">A normal biological response to stressors</td>
+          <td data-label="Depression">Medically diagnosed condition</td>
+          <td data-label="Burnout">An occupational syndrome</td>
+        </tr>
+        <tr>
+          <td data-label="Stress">Caused by over engagement with stressors</td>
+          <td data-label="Depression">Caused by a combination of genetic, psychological and environmental factors</td>
+          <td data-label="Burnout">Caused by stressors relating to the workplace</td>
+        </tr>
+        <tr>
+          <td data-label="Stress">May not prioritise personal interests and hobbies</td>
+          <td data-label="Depression">May no longer find enjoyment in personal interests and hobbies</td>
+          <td data-label="Burnout">May not have the energy for personal interests and hobbies</td>
+        </tr>
+        <tr>
+          <td data-label="Stress">Reactivity, anxiety, sense of urgency</td>
+          <td data-label="Depression">Negative feelings relate to all areas of life</td>
+          <td data-label="Burnout">Negative feelings are associated with specific work-related stressors</td>
+        </tr>
+        <tr>
+          <td data-label="Stress">Recovery involves stressor management</td>
+          <td data-label="Depression">Treatment may involve medication, therapy and lifestyle changes</td>
+          <td data-label="Burnout">Recovery involves stressor management and treatment of physical illnesses</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="tableMobile">
+       <thead>
+        <tr>
+          <th>Stress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A normal biological response to stressors</td>
+        </tr>
+        <tr>
+          <td>Caused by over engagement with stressors</td>
+        </tr>
+        <tr>
+          <td>May not prioritise personal interests and hobbies</td>
+        </tr>
+        <tr>
+          <td>Reactivity, anxiety, sense of urgency</td>
+        </tr>
+        <tr>
+          <td>Recovery involves stressor management</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="tableMobile">
+       <thead>
+        <tr>
+          <th>Depression</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Medically diagnosed condition</td>
+        </tr>
+        <tr>
+          <td>Caused by a combination of genetic, psychological and environmental factors</td>
+        </tr>
+        <tr>
+          <td>May no longer find enjoyment in personal interests and hobbies</td>
+        </tr>
+        <tr>
+          <td>Negative feelings relate to all areas of life</td>
+        </tr>
+        <tr>
+          <td>Treatment may involve medication, therapy and lifestyle changes</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <table class="tableMobile">
+       <thead>
+        <tr>
+          <th>Burnout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>An occupational syndrome</td>
+        </tr>
+        <tr>
+          <td data-label="Burnout">Caused by stressors relating to the workplace</td>
+        </tr>
+        <tr>
+          <td data-label="Burnout">May not have the energy for personal interests and hobbies</td>
+        </tr>
+        <tr>
+          <td>Negative feelings are associated with specific work-related stressors</td>
+        </tr>
+        <tr>
+          <td>Recovery involves stressor management and treatment of physical illnesses</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
