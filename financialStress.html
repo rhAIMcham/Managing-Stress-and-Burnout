@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<head>
+  <title>Financial Stress</title>
+    <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<style>
+
+    :root {
+  --AIMblue: #4353A3;
+  --darkBlue: #38416D;
+  --teal: #5DC8B9;
+  --cream: #F1EEDE;
+  --grey: #e7e9ec;
+  --rust: #AF4510;
+  --navy: #12195C;
+  --white: #ffffff;
+  --lightBlue: #AEBAE4;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: white;
+}
+
+.containment {
+  width: fit-content;
+  margin: auto;
+}
+
+p {
+  padding-right: 10px;
+}
+
+li {
+  list-style: none;
+  padding: 5px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  min-width: 60px;
+  height: 34px;
+  margin-left: 40px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #AF4510;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--AIMblue);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--AIMblue);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+fieldset {
+  width: fit-content;
+}
+
+.checkContainer {
+  border-bottom: grey 2px dotted;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+button {
+  background-color: #12195C;
+  position: relative;
+  color: white;
+  width: 200px;
+  border: solid 2px var(--cream);
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1rem;
+  float: right;
+}
+
+button:hover {
+  background-color: var(--lightBlue);
+  color: #12195C;
+  border: solid 2px #12195C;
+}
+
+.buttonBar {
+  display: flex;
+  justify-content: space-around;
+}
+.hiddenButton {
+  display: none;
+}
+#results {
+  text-align: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  max-width: 400px;
+    margin: auto;
+    padding-top: 40px;
+}
+.labelSmall {
+  display: none;
+}
+legend {
+  font-size: 2rem;
+}
+.cardResults {
+  display: none;
+}
+   @media screen and (max-width: 800px) {
+.buttonBar {
+  display: flex;
+  flex-wrap: wrap;
+}
+.labelSmall {
+  display: none;
+}
+}
+ @media screen and (max-height: 380px) {
+body {
+    background-color: var(--AIMblue);
+  }
+form {
+  display: none;
+}
+.buttonBar {
+display: none;
+}
+.containment {
+  width: auto;
+#results {
+  display: none;
+}
+.cardResults {
+  display: block;
+}
+.labelSmall {
+  width: fit-content;
+  text-align: center;
+  background-color: var(--AIMblue);
+  color: white;
+  height: 180px;
+  display: block;
+  margin: auto;
+  border-radius: 8px;
+}
+   .labelSmall > h3 {
+     padding: 30px 20px;
+   }
+}
+ }
+  </style>
+</head>
+<body>
+<div class="containment">
+  <div class="labelSmall">
+    <h3 id="labelText">Financial Stress Triggers</h3>
+  </div>
+<form name="Financial Stress" onsubmit="return false" onchange="calculate(this)">
+ <fieldset>
+  <legend>Financial Stress</legend>
+
+   <div class="formContainer">
+     <div class="checkContainer">
+          
+  <h4>Indicate which of the below are key triggers for you.</h4>
+       <h4>NO / YES</h4>
+     </div>
+  <!--Check 1-->
+     <div class="checkContainer">
+     <p label="question1">Struggling to pay rent or mortgage on time
+    </p>
+   <label class="switch">
+        <input
+          type="checkbox"
+          role="switch"
+          name=one
+          autocomplete="off"
+          unchecked>
+     <span class="slider round"></span></label></div>
+   
+  <!--Check 2-->
+   <div class="checkContainer">
+   <p>Credit card debt or personal loans accumulating interest
+     </p>
+   <label class="switch">
+        <input 
+          type="checkbox"
+          role="switch"
+          name=two
+          autocomplete="off"
+          unchecked>
+       <span class="slider round"></span></label></div>
+  
+   <!--Check 3-->
+   <div class="checkContainer">
+   <p>Unexpected expenses, such as car repairs or medical bills
+   </p>
+      <label class="switch">
+        <input 
+        type="checkbox"
+        role="switch"
+        name=three
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
+  
+   <!--Check 4-->
+   <div class="checkContainer">
+   <p>Living paycheck to paycheck, with no savings buffer
+     </p>
+   <label class="switch">
+        <input
+        type="checkbox"
+        role="switch"
+        name=four
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
+  
+   <!--Check 5-->
+   <div class="checkContainer">
+   <p>Job loss or reduction in income/hours
+     </p>
+     <label class="switch">
+        <input
+        type="checkbox"
+        role="switch"
+        name=five
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
+       
+   <!--Check 6-->
+   <div class="checkContainer">
+   <p>Student loan repayments impacting long-term goals
+     </p>
+     <label class="switch">
+        <input
+        type="checkbox"
+        role="switch"
+        name=six
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
+       
+   <!--Check 7-->
+   <div class="checkContainer">
+   <p>Rising cost of living, e.g. groceries, fuel, utilities etc.</p>
+     <label class="switch">
+        <input
+        type="checkbox"
+        role="switch"
+        name=seven
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
+       
+   <!--Check 8-->
+   <div class="checkContainer">
+   <p>Family financial obligations, e.g. supporting relatives</p>
+     <label class="switch">
+        <input
+        type="checkbox"
+        role="switch"
+        name=eight
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
+          
+   <!--Check 9-->
+   <div class="checkContainer">
+   <p>Inability to save for major life events or retirement</p>
+     <label class="switch">
+        <input
+        type="checkbox"
+        role="switch"
+        name=nine
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
+          
+   <!--Check 10-->
+   <div class="checkContainer">
+   <p>Disagreements with a partner about financial priorities</p>
+     <label class="switch">
+        <input
+        type="checkbox"
+        role="switch"
+        name=ten
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
+   </div>
+  
+  <p class="cardResults">Total:<output name=result id="numericalResult"></output></p>
+ </fieldset>
+  
+ <script>
+  calculate(document.forms.scorecalc);
+ </script>
+</form>
+
+<div class="buttonBar">
+<button id="hideMe" onclick="show(); hideButton()">Results</button>
+</div>
+<p id="results"></p>
+</div>
+</body>
+<script>
+function calculate(form) {
+  const checkNames = [
+    'one', 'two', 'three', 'four', 'five', 'six',
+    'seven', 'eight', 'nine', 'ten'
+  ];
+  let score = 0;
+  checkNames.forEach(name => {
+    if (form.elements[name].checked) score += 1;
+  });
+  form.elements.result.value = score;
+}  
+
+//function hideButton() {
+//var y = document.getElementById("labelText");
+//    y.classList.toggle("hiddenButton");
+//}
+//TODO: Make it remove the labelText permanently - maybe I should just apply the results to the label text!?
+
+ function show() {
+  var x = Number(document.getElementById("numericalResult").value);
+  var y = document.getElementById("results");
+  var z = document.getElementById("labelText");
+  console.log(x);
+
+  if (x <= 3) {
+     y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. It seems that financial stress triggers are under control!';
+  } else if (x > 3 && x <= 5) {
+    y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Financial stress is present but not overwhelming.';
+  } else if (x > 5 && x < 9) {
+   y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Financial stress is becoming a significant issue.';
+  } else if (x >= 9) {
+    y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Financial stress is critically high.';
+  }
+}
+</script>
+</html>
