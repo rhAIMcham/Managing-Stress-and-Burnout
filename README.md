@@ -13,5 +13,6 @@ The code titles and their respective chameleon module destinations are recorded 
 
   rate your stress - what is stress - rate your stress
 
-  Stress depression burnout table - what is burnout - symptoms of burnout - Stress, depression or burnout?
+  Stress depression burnout table - what is burnout - symptoms of burnout - Stress, depression or burnout?\
   
+  Priorities graph - Social connetions - re-evaluation - activity
