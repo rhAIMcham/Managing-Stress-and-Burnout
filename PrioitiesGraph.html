@@ -43,8 +43,8 @@
     border: solid 2px #12195C;
     }
     .canvasGraph {
-        max-height: 500px;
-        max-width: 500px;
+        max-height: 600px;
+        max-width: 600px;
         border: var(--darkBlue) solid 2px;
         border-radius: 8px;
         background-color: white;
@@ -76,11 +76,13 @@
     .containment {
     width: fit-content;
     margin: auto;
+    display: flex;
     }
     </style>
 </head>
 <body>
 <div class="containment">
+    <div>
     <div class="inputContainer" id="inputContainer">
         <!-- Inputs will be dynamically added here -->
     </div>
@@ -89,11 +91,10 @@
         <button id="addDataBtn">Add Data</button>
         <button id="removeDataBtn">Remove Data</button>
     </div>
-
+</div>
     <section class="canvasCard">
-        <canvas width="500" height="500" id="myChart" class="canvasGraph"></canvas>
+        <canvas width="600" height="600" id="myChart" class="canvasGraph"></canvas>
     </section>
-<button onclick="downloadChart()">Download Chart Image</button>
 </div>
     <script>
       function downloadChart() {
