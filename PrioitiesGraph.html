@@ -18,43 +18,69 @@
   --navy: #12195C;
   --white: #ffffff;
   --lightBlue: #AEBAE4;
-}
-        body {
-            font-family: 'IBM Plex Sans', sans-serif;
-            margin: 30px;
-        }
+    }
+    body {
+        font-family: 'IBM Plex Sans', sans-serif;
+        margin: 30px;
+    }
 
-        .canvasGraph {
-            max-height: 500px;
-            max-width: 500px;
-            border: red solid 2px;
-        }
+    button {
+    background-color: #12195C;
+    position: relative;
+    color: white;
+    width: 200px;
+    border: solid 2px var(--cream);
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1rem;
+    }
 
-        .inputCard {
-            margin-bottom: 20px;
-        }
-        input {
-            margin: 5px;
-        }
-        .inputCard input[type="text"] {
-            width: 200px;
-        }
+    button:hover {
+    background-color: var(--lightBlue);
+    color: #12195C;
+    border: solid 2px #12195C;
+    }
+    .canvasGraph {
+        max-height: 500px;
+        max-width: 500px;
+        border: var(--darkBlue) solid 2px;
+        border-radius: 8px;
+        background-color: white;
+    }
 
-        .buttons {
-            margin: 20px 0;
-        }
+    .inputCard {
+        margin-bottom: 20px;
+    }
+    input {
+        margin: 5px;
+    }
+    .inputCard input[type="text"] {
+        width: 200px;
+    }
 
-        .inputContainer {
-            margin-bottom: 40px;
-            display: flex;
-            max-width: 500px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+
+    .inputContainer {
+        margin-bottom: 40px;
+        display: flex;
+        max-width: 500px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .containment {
+    width: fit-content;
+    margin: auto;
+    }
     </style>
 </head>
 <body>
-
+<div class="containment">
     <div class="inputContainer" id="inputContainer">
         <!-- Inputs will be dynamically added here -->
     </div>
@@ -65,10 +91,10 @@
     </div>
 
     <section class="canvasCard">
-        <canvas width="300" height="400" id="myChart" class="canvasGraph"></canvas>
+        <canvas width="500" height="500" id="myChart" class="canvasGraph"></canvas>
     </section>
 <button onclick="downloadChart()">Download Chart Image</button>
-
+</div>
     <script>
       function downloadChart() {
     const link = document.createElement('a');
@@ -213,6 +239,5 @@
             }
         });
     </script>
-
 </body>
 </html>
