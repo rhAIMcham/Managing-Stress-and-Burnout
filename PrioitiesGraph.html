@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Graph 5</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      :root {
+  --AIMblue: #4353A3;
+  --darkBlue: #38416D;
+  --teal: #5DC8B9;
+  --cream: #F1EEDE;
+  --grey: #e7e9ec;
+  --rust: #AF4510;
+  --navy: #12195C;
+  --white: #ffffff;
+  --lightBlue: #AEBAE4;
+}
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 30px;
+        }
+
+        .canvasGraph {
+            max-height: 500px;
+            border: red solid 2px;
+        }
+
+        .inputCard {
+            margin-bottom: 20px;
+        }
+        input {
+            margin: 5px;
+        }
+        .inputCard input[type="text"] {
+            width: 200px;
+   
+        }
+
+        .buttons {
+            margin: 20px 0;
+        }
+
+        .inputContainer {
+            margin-bottom: 40px;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="inputContainer" id="inputContainer">
+        <!-- Inputs will be dynamically added here -->
+    </div>
+
+    <div class="buttons">
+        <button id="addDataBtn">Add Data</button>
+        <button id="removeDataBtn">Remove Data</button>
+    </div>
+
+    <section class="canvasCard">
+        <canvas width="300" height="400" id="myChart" class="canvasGraph"></canvas>
+    </section>
+<button onclick="downloadChart()">Download Chart Image</button>
+
+    <script>
+      function downloadChart() {
+    const link = document.createElement('a');
+    link.download = 'chart.png';
+    link.href = document.getElementById('myChart').toDataURL('image/png');
+    link.click();
+}
+
+        const inputContainer = document.getElementById('inputContainer');
+
+        // Initial chart data
+        const labels = ["Issue 1", "Issue 2", "Issue 3"];
+        const yValues = [60, 40, 70];
+        const backgroundColors = ['#4353A3', '#AEBAE4', '#5DC8B9', '#38416D', '#4353A3','#AEBAE4', '#5DC8B9', '#38416D'];
+
+
+        // Chart instance
+        const chart = new Chart("myChart", {
+            type: "polarArea",
+            data: {
+                labels,
+                datasets: [{
+                    backgroundColor: backgroundColors,
+                    data: yValues,
+                    label: 'Values'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    r: {
+                        pointLabels: {
+                            display: true,
+                            centerPointLabels: true,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        displayColors: false,
+                    },
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'black',
+                            font: {
+                                size: 15
+                            }
+                        },
+                    },
+                    title: {
+                        display: true,
+                        text: 'Reflections',
+                        color: 'black',
+                        font: {
+                            size: 15
+                        }
+                    }
+                }
+            }
+        });
+
+        // Utility: Create input/slider pair
+        function createInputSet(index, label = '', value = 50) {
+            const inputCard = document.createElement('div');
+            inputCard.className = 'inputCard';
+            inputCard.id = `inputCard${index}`;
+
+            // Label Input
+            const textInput = document.createElement('input');
+            textInput.type = 'text';
+            textInput.placeholder = `Enter your issue here`;
+            textInput.value = label || `Issue ${index + 1}`;
+            textInput.id = `issue${index}`;
+            textInput.addEventListener('input', function () {
+                chart.data.labels[index] = this.value || `Issue ${index + 1}`;
+                chart.update();
+            });
+
+            // Slider
+            const slider = document.createElement('input');
+            slider.type = 'range';
+            slider.min = 10;
+            slider.max = 100;
+            slider.value = value;
+            slider.id = `input${index}`;
+            slider.addEventListener('input', function () {
+                yValues[index] = Number(this.value);
+                valueDisplay.textContent = `Value: ${this.value}`;
+                chart.update();
+            });
+
+            // Value display
+            const valueDisplay = document.createElement('p');
+            valueDisplay.id = `input${index}Value`;
+            valueDisplay.textContent = `Value: ${value}`;
+
+            // Assemble
+            inputCard.appendChild(textInput);
+            inputCard.appendChild(document.createElement('br'));
+            inputCard.appendChild(slider);
+            inputCard.appendChild(valueDisplay);
+
+            inputContainer.appendChild(inputCard);
+        }
+
+        // Initialize with 3 sets
+        for (let i = 0; i < labels.length; i++) {
+            createInputSet(i, labels[i], yValues[i]);
+        }
+
+        // Add Data
+        document.getElementById('addDataBtn').addEventListener('click', () => {
+            const newIndex = chart.data.labels.length;
+            const newLabel = `New Issue ${newIndex + 1}`;
+            const newValue = 50;
+
+            chart.data.labels.push(newLabel);
+            yValues.push(newValue);
+            createInputSet(newIndex, newLabel, newValue);
+            chart.update();
+        });
+
+        // Remove Data
+        document.getElementById('removeDataBtn').addEventListener('click', () => {
+            const index = yValues.length - 1;
+          
+            if (index >= 0) {
+                chart.data.labels.pop();
+                console.log(chart.data.labels);
+                yValues.pop();
+            
+            const inputCard = document.getElementById(`inputCard${index}`);
+                  if (inputCard) {
+                        inputCard.remove();
+                  }
+
+                chart.update();
+            }
+        });
+    </script>
+
+</body>
+</html>
