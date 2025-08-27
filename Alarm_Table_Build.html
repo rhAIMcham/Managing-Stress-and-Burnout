@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alarm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  </head>
+  <style>
+    :root {
+        --AIMblue: #4353A3;
+        --darkBlue: #38416D;
+        --teal: #5DC8B9;
+        --cream: #F1EEDE;
+        --grey: #e7e9ec;
+        --rust: #AF4510;
+        --navy: #12195C;
+        --white: #ffffff;
+        --lightBlue: #AEBAE4;
+      }
+h3 {
+  text-align: center;
+}
+.svgColor {
+  full: #AF4510;
+}
+      body {
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+
+ul {
+  margin-left: -10px;
+}
+
+      table {
+max-width: 620px;
+        margin:0;
+        padding:0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        text-align: left;
+      }
+
+      table tr {
+        border: 1px solid var(--AIMblue);
+        padding: 5px;
+      }
+
+      table th, table td {
+        border: 1px solid var(--AIMblue);
+        padding: 10px;
+      }
+
+      table th {
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        background-color: var(--rust);
+        color: var(--white)
+      }
+      tr:nth-child(even) {
+  background-color: var(--grey); /*Grey of torment!*/
+} 
+
+      tr:nth-child(odd) {
+  background-color: white; 
+} 
+
+svg {
+  max-width: 90px;
+}
+  </style>
+  <body>
+    <table>
+         <colgroup>
+        <col style="width: 15%;">
+        <col style="width: 20%;">
+        <col style="width: 50%;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th colspan="3">ALARM STAGE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">  <style>
+    path {
+      fill: #AF4510;
+      stroke: #AF4510;
+      stroke-width: 2px;
+    }
+                .fa-secondary{opacity:.4}
+  </style><path d="M256 8C119 8 8 119.08 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 376a32 32 0 1 1 32-32 32 32 0 0 1-32 32zm38.24-238.41l-12.8 128A16 16 0 0 1 265.52 288h-19a16 16 0 0 1-15.92-14.41l-12.8-128A16 16 0 0 1 233.68 128h44.64a16 16 0 0 1 15.92 17.59z"/><path d="M278.32 128h-44.64a16 16 0 0 0-15.92 17.59l12.8 128A16 16 0 0 0 246.48 288h19a16 16 0 0 0 15.92-14.41l12.8-128A16 16 0 0 0 278.32 128zM256 320a32 32 0 1 0 32 32 32 32 0 0 0-32-32z" class="fa-secondary"/></svg>
+          </td>
+          <td><h3>Stressor<br>↓</h3>
+          </td>
+              <td>Threat or trigger
+          </td>
+        </tr>
+        <tr>                    
+          <td>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><defs><style>.fa-secondary{opacity:.4}</style></defs><path d="M272 439.93a71.81 71.81 0 0 1-140 22.78 70.91 70.91 0 0 1-84-70.77 72.51 72.51 0 0 1 1.42-14.1A80 80 0 0 1 0 304c0-29.66 16.34-55.26 40.34-69.07A79.05 79.05 0 0 1 32 200a80 80 0 0 1 49.66-74A63.6 63.6 0 0 1 144 48c.75 0 1.45.2 2.2.22A63.87 63.87 0 0 1 272 64zM576 304c0-29.66-16.34-55.26-40.34-69.07A79.05 79.05 0 0 0 544 200a80 80 0 0 0-49.66-74A63.6 63.6 0 0 0 432 48c-.75 0-1.45.2-2.2.22A63.87 63.87 0 0 0 304 64v375.9a71.81 71.81 0 0 0 140 22.78 71.73 71.73 0 0 0 82.61-84.87A80 80 0 0 0 576 304z" class="fa-secondary"/><path d="M304 439.93a8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8V72a8 8 0 0 1 8-8h16a8 8 0 0 1 8 8z" class="fa-primary"/></svg>
+          </td>
+          <td><h3>Response<br>↓</h3></td>
+          <td><ul>
+            <li>Amygdala activation</li>
+            <li>SNS releases adrenaline and noradrenaline</li>
+            <li>Conditioned response to stressor: Fight, Flight, Fawn, Freeze</li>
+            </ul>
+</td>
+        </tr>
+        <tr>
+          <td>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><defs><style>.fa-secondary{opacity:.4}</style></defs><path d="M640 240v32a16 16 0 0 1-16 16H499.78l-55.15 110.3a32 32 0 0 1-59.5-5.89l-61.39-225.12-68.44 319.4A32 32 0 0 1 225.08 512h-1.09a32 32 0 0 1-30.75-23.2L135.86 288H16a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h144a32 32 0 0 1 30.77 23.2L219.56 348 288.7 25.3a32 32 0 0 1 62.18-1.72l73.95 271.2 26.54-53.09A32 32 0 0 1 480 224h144a16 16 0 0 1 16 16z"/></svg>
+          </td>
+          <td><h3>Outcome</h3></td>
+          <td>Increased heartrate, rapid breathing/pulse, dilated pupils</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
