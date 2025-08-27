@@ -66,12 +66,17 @@ max-width: 620px;
       tr:nth-child(odd) {
   background-color: white; 
 } 
+.containment {
+  width: fit-content;
+  margin: auto;
+}
 
 svg {
   max-width: 90px;
 }
   </style>
   <body>
+    <div class="containment">
     <table>
          <colgroup>
         <col style="width: 15%;">
@@ -121,5 +126,6 @@ svg {
         </tr>
       </tbody>
     </table>
+    </div>
   </body>
 </html>
