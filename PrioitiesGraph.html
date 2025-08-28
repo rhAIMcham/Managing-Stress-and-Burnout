@@ -43,8 +43,8 @@
     border: solid 2px #12195C;
     }
     .canvasGraph {
-        max-height: 600px;
-        max-width: 600px;
+        max-height: 700px;
+        max-width: 700px;
         border: var(--darkBlue) solid 2px;
         border-radius: 8px;
         background-color: white;
@@ -93,7 +93,7 @@
     </div>
 </div>
     <section class="canvasCard">
-        <canvas width="600" height="600" id="myChart" class="canvasGraph"></canvas>
+        <canvas width="700" height="700" id="myChart" class="canvasGraph"></canvas>
     </section>
 </div>
     <script>
@@ -109,7 +109,7 @@
         // Initial chart data
         const labels = ["Issue 1", "Issue 2", "Issue 3"];
         const yValues = [60, 40, 70];
-        const backgroundColors = ['#4353A3', '#AEBAE4', '#5DC8B9', '#38416D', '#4353A3','#AEBAE4', '#5DC8B9', '#38416D'];
+        const backgroundColors = ['#4353A3', '#AF4510', '#38416D', '#5DC8B9', '#F1EEDE','#508DAE', '#AEBAE4', '#D09977'];
 
 
         // Chart instance
@@ -128,7 +128,7 @@
                 scales: {
                     r: {
                         pointLabels: {
-                            display: true,
+                            display: false,
                             centerPointLabels: true,
                             font: {
                                 size: 12
@@ -144,9 +144,12 @@
                         position: 'top',
                         labels: {
                             color: 'black',
+                            
                             font: {
-                                size: 15
+                                size: 20,
+                                padding: 20
                             }
+                            
                         },
                     },
                     title: {
@@ -154,7 +157,7 @@
                         text: 'Reflections',
                         color: 'black',
                         font: {
-                            size: 15
+                            size: 20
                         }
                     }
                 }
