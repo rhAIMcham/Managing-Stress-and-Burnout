@@ -166,6 +166,11 @@ button:hover {
   margin: auto;
   display: flex;
 }
+
+.resultP {
+  text-align: center;
+  padding: 10px;
+}
 @media screen and (max-width: 800px) {
   .displayGroup {
     flex-wrap: wrap;
@@ -352,7 +357,7 @@ button:hover {
         </canvas>
     </section>
     <div class="resultsGroup">
-  <p id="results"></p>
+  <p id="results" class="resultP"></p>
 <!--<p id="resultsTwo"></p>  -->
 </div>
   </div>
@@ -470,7 +475,7 @@ function calculate2(form) {
   var j = document.getElementById("resultsTwo");
   console.log(x);
   console.log(z);
-    j.innerHTML = y.innerHTML = 'You scored ' + z + ' for behavioural stress and ' + x + ' for emotional stress. Scroll down and press continue to move on.';
+    j.innerHTML = y.innerHTML = 'You scored ' + z + ' for behavioural stress and ' + x + ' for emotional stress.<br><br>Scroll down and press continue to move on.';
 }
 
 //  function formTwo() {
