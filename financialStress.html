@@ -158,6 +158,10 @@ legend {
 .cardResults {
   display: none;
 }
+.instruction {
+  text-align: center;
+  margin-top: 20px;
+}
    @media screen and (max-width: 800px) {
 .buttonBar {
   display: flex;
@@ -349,7 +353,7 @@ display: none;
   
   <p class="cardResults">Total:<output name=result id="numericalResult"></output></p>
  </fieldset>
-  
+
  <script>
   calculate(document.forms.scorecalc);
  </script>
@@ -359,7 +363,9 @@ display: none;
 <button id="hideMe" onclick="show(); hideButton()">Results</button>
 </div>
 <p id="results"></p>
-</div>
+
+  <p class="instruction">Click the 'X' button in the top right to close this window.</p>
+  </div>
 </body>
 <script>
 function calculate(form) {
