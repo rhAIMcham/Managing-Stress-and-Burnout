@@ -7,7 +7,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 <style>
-
+.instruction {
+  text-align: center;
+  margin-top: 20px;
+}
     :root {
   --AIMblue: #4353A3;
   --darkBlue: #38416D;
@@ -187,6 +190,9 @@ display: none;
 }
 .cardResults {
   display: block;
+}
+.instruction {
+  display: none;
 }
 .labelSmall {
   width: fit-content;
@@ -384,7 +390,8 @@ display: none;
 <button id="hideMe" onclick="show(); hideButton()">Results</button>
 </div>
 <p id="results"></p>
-</div>
+  <p class="instruction">Click the 'X' button in the top right to close this window.</p>
+  </div>
 </body>
 <script>
 function calculate(form) {

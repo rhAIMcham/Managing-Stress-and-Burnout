@@ -140,6 +140,10 @@ button:hover {
 .hiddenButton {
   display: none;
 }
+.instruction {
+  text-align: center;
+  margin-top: 20px;
+}
 #results {
   text-align: center;
   font-family: "IBM Plex Sans", sans-serif;
@@ -175,6 +179,9 @@ fieldset {
     background-color: var(--teal);
   }
 form {
+  display: none;
+}
+.instruction {
   display: none;
 }
 .buttonBar {
@@ -359,7 +366,9 @@ display: none;
 <button id="hideMe" onclick="show(); hideButton()">Results</button>
 </div>
 <p id="results"></p>
-</div>
+
+  <p class="instruction">Click the 'X' button in the top right to close this window.</p>
+  </div>
 </body>
 <script>
 function calculate(form) {
