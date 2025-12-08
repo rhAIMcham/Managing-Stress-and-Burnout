@@ -20,7 +20,7 @@
 }
 
 body {
-  font-family: "IBM-Plex-Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .containment {
@@ -61,6 +61,7 @@ li {
   background-color: #AF4510;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 34px;
 }
 
 .slider:before {
@@ -73,6 +74,7 @@ li {
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
@@ -80,7 +82,9 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #4353A3;
+  box-shadow: 0 0 0 3px var(--darkBlue), inset 0 0 0 2px var(--darkBlue);
+  outline: 2px solid var(--darkBlue);
+  outline-offset: 2px;
 }
 
 input:checked + .slider:before {
@@ -106,7 +110,8 @@ fieldset {
   border-bottom: grey 2px dotted;
   display: flex;
   justify-content: space-between;
-  padding-top: 5px;
+  padding: 10px;
+  align-items: center;
 }
 
 button {
@@ -130,6 +135,11 @@ button:hover {
   border: solid 2px #12195C;
 }
 
+button:focus {
+  outline: 2px solid var(--darkBlue);
+  outline-offset: 2px;
+}
+
 .buttonBar {
   display: flex;
   justify-content: space-around;
@@ -150,6 +160,18 @@ legend {
   font-size: 2rem;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
    @media screen and (max-width: 800px) {
 .buttonBar {
   display: flex;
@@ -159,21 +181,10 @@ legend {
   display: none;
 }
 }
-   /*  @media screen and (max-width: 300px) {
-form {
-  display: none;
-}
-.labelSmall {
-  display: block;
-}
-}*/
 </style>
 </head>
 <body>
 <div class="containment">
-<!--<div class="labelSmall">
-    <p>View this form fullscreen to submit your answers.</p>
-  </div>-->  
 <form name="Rate your stress" onsubmit="return false" onchange="calculate(this)">
   
  <fieldset>
@@ -182,174 +193,176 @@ form {
 
    
    <div class="formContainer">
-     <div class="checkContainer">
+     <div class="checkContainer" role="presentation">
           
   <h3>Read the following statements and indicate whether you agree or disagree:</h3>
        <h3>NO / YES</h3>
      </div>
   <!--Check 1-->
      <div class="checkContainer">
-     <p label="question1">I find myself less eager to go back to work or to resume my chores after a weekend
-    </p>
-   <label class="switch">
+     <label for="one">I find myself less eager to go back to work or to resume my chores after a weekend</label>
+   <span class="switch">
         <input
+          id="one"
           type="checkbox"
           role="switch"
-          name=one
-          autocomplete="off"
-          unchecked>
-     <span class="slider round"></span></label></div>
+          aria-checked="false"
+          name="one"
+          autocomplete="off">
+     <span class="slider round" aria-hidden="true"></span></span></div>
    
   <!--Check 2-->
    <div class="checkContainer">
-   <p>I feel less and less patient and/or sympathetic listening to other people’s problems
-     </p>
-   <label class="switch">
+   <label for="two">I feel less and less patient and/or sympathetic listening to other people's problems</label>
+   <span class="switch">
         <input 
+          id="two"
           type="checkbox"
           role="switch"
-          name=two
-          autocomplete="off"
-          unchecked>
-       <span class="slider round"></span></label></div>
+          aria-checked="false"
+          name="two"
+          autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
   
    <!--Check 3-->
    <div class="checkContainer">
-   <p>I ask more closed-ended questions to discourage dialogue with friends and co-workers than open-ended ones to encourage it
-   </p>
-      <label class="switch">
+   <label for="three">I ask more closed-ended questions to discourage dialogue with friends and co-workers than open-ended ones to encourage it</label>
+      <span class="switch">
         <input 
+        id="three"
         type="checkbox"
         role="switch"
-        name=three
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="three"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
   
    <!--Check 4-->
    <div class="checkContainer">
-   <p>I try to get away from people as soon as I can
-     </p>
-   <label class="switch">
+   <label for="four">I try to get away from people as soon as I can</label>
+   <span class="switch">
         <input
+        id="four"
         type="checkbox"
         role="switch"
-        name=four
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="four"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
   
    <!--Check 5-->
    <div class="checkContainer">
-   <p>I am falling further behind in many of the responsibilities in my life
-     </p>
-     <label class="switch">
+   <label for="five">I am falling further behind in many of the responsibilities in my life</label>
+     <span class="switch">
         <input
+        id="five"
         type="checkbox"
         role="switch"
-        name=five
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="five"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
        
    <!--Check 6-->
    <div class="checkContainer">
-   <p>I am losing my sense of humour
-     </p>
-     <label class="switch">
+   <label for="six">I am losing my sense of humour</label>
+     <span class="switch">
         <input
+        id="six"
         type="checkbox"
         role="switch"
-        name=six
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="six"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
        
    <!--Check 7-->
    <div class="checkContainer">
-   <p>I feel tired most of the time</p>
-     <label class="switch">
+   <label for="seven">I feel tired most of the time</label>
+     <span class="switch">
         <input
+        id="seven"
         type="checkbox"
         role="switch"
-        name=seven
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="seven"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
        
    <!--Check 8-->
    <div class="checkContainer">
-   <p>I know what will make me feel better, but I just can’t push myself to do it and I’ll ‘Yes, but’ any suggestions that people make</p>
-     <label class="switch">
+   <label for="eight">I know what will make me feel better, but I just can't push myself to do it and I'll 'Yes, but' any suggestions that people make</label>
+     <span class="switch">
         <input
+        id="eight"
         type="checkbox"
         role="switch"
-        name=eight
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="eight"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
           
    <!--Check 9-->
    <div class="checkContainer">
-   <p>I feel trapped</p>
-     <label class="switch">
+   <label for="nine">I feel trapped</label>
+     <span class="switch">
         <input
+        id="nine"
         type="checkbox"
         role="switch"
-        name=nine
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="nine"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
           
    <!--Check 10-->
    <div class="checkContainer">
-   <p>My dedication to work, exercise, diet, and friendships is waning</p>
-     <label class="switch">
+   <label for="ten">My dedication to work, exercise, diet, and friendships is waning</label>
+     <span class="switch">
         <input
+        id="ten"
         type="checkbox"
         role="switch"
-        name=ten
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="ten"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
    
      <!--Check 11-->
    <div class="checkContainer">
-   <p>I don’t seem to have much fun anymore</p>
-     <label class="switch">
+   <label for="eleven">I don't seem to have much fun anymore</label>
+     <span class="switch">
         <input
+        id="eleven"
         type="checkbox"
         role="switch"
-        name=eleven
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="eleven"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
    
       <!--Check 12-->
    <div class="checkContainer">
-     <p>I find it more and more difficult to see people socially</p>
-     <label class="switch">
+     <label for="twelve">I find it more and more difficult to see people socially</label>
+     <span class="switch">
         <input
+        id="twelve"
         type="checkbox"
         role="switch"
-        name=twelve
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="twelve"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
    </div>
   
-  <p style="display:none;">Total:<output name=result id="numericalResult"></output></p>
+  <p style="display:none;">Total:<output name="result" id="numericalResult" aria-live="polite" aria-label="Your stress score"></output></p>
  </fieldset>
-  
- <script>
-  calculate(document.forms.scorecalc);
- </script>
 </form>
 
 <div class="buttonBar">
-<button id="hideMe" onclick="show(); hideButton()">Results</button>
+<button id="hideMe" onclick="show(); hideButton()" aria-label="Submit and view your stress assessment result">Results</button>
 </div>
-<p id="results"></p>
+<p id="results" role="status" aria-live="assertive" aria-label="Your stress assessment result"></p>
 </div>
 </body>
 
@@ -362,34 +375,69 @@ function calculate(form) {
   ];
   let score = 0;
   checkNames.forEach(name => {
-    if (form.elements[name].checked) score += 1;
+    const checkbox = form.elements[name];
+    if (checkbox.checked) {
+      score += 1;
+      checkbox.setAttribute('aria-checked', 'true');
+    } else {
+      checkbox.setAttribute('aria-checked', 'false');
+    }
   });
   form.elements.result.value = score;
-}  
+}
+
+function initKeyboardToggle() {
+  const checkNames = [
+    'one', 'two', 'three', 'four', 'five', 'six',
+    'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'
+  ];
+  const form = document.forms['Rate your stress'];
+  
+  checkNames.forEach(name => {
+    const checkbox = form.elements[name];
+    checkbox.addEventListener('keydown', function(event) {
+      if (event.code === 'Space' || event.code === 'Enter') {
+        event.preventDefault();
+        checkbox.checked = !checkbox.checked;
+        const changeEvent = new Event('change', { bubbles: true });
+        checkbox.dispatchEvent(changeEvent);
+        calculate(form);
+      }
+    });
+  });
+}
 
 function hideButton() {
-var z = document.getElementById("hideMe");
+  var z = document.getElementById("hideMe");
   z.classList.toggle("hiddenButton");
 }
 
-
- function show() {
+function show() {
   var x = Number(document.getElementById("numericalResult").value);
   var y = document.getElementById("results");
   console.log(x);
 
+  let message = '';
   if (x <= 3) {
-     y.innerHTML = 'You scored between 0 and 3. You are likely more exhausted than stressed – take time to relax.';
+     message = 'You scored between 0 and 3. You are likely more exhausted than stressed – take time to relax.';
   } else if (x > 3 && x < 7) {
-    y.innerHTML = 'You scored between 4 and 6. You are likely beginning to stress out – heed the warning signs.';
+    message = 'You scored between 4 and 6. You are likely beginning to stress out – heed the warning signs.';
   } else if (x > 6 && x < 10) {
-    y.innerHTML = 'You scored between 7 and 9. You are possibly stressed out – intervention is required.';
-  } else { (x > 9) 
-    y.innerHTML = 'You scored between 10 and 12. You are probably stressed out – a stress management strategy is needed now.';
+    message = 'You scored between 7 and 9. You are possibly stressed out – intervention is required.';
+  } else if (x >= 10) {
+    message = 'You scored between 10 and 12. You are probably stressed out – a stress management strategy is needed now.';
   }
+  
+  y.innerHTML = message;
+  y.setAttribute('role', 'status');
+  y.setAttribute('aria-live', 'assertive');
 }
- //TODO: refactor to use switch? with range declared elsewhere
- //TODO: refactor to use switch? with range declared elsewhere
+
+// Initialize keyboard toggle and calculations when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  initKeyboardToggle();
+  calculate(document.forms['Rate your stress']);
+});
 </script>
 </html>
 

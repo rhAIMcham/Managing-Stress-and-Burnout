@@ -21,7 +21,7 @@
 }
 
 body {
-  font-family: "IBM-Plex-Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .displayGroup {
@@ -56,6 +56,7 @@ li {
   display: flex;
   max-width: 600px;
 }
+
 .switch {
   position: relative;
   display: inline-block;
@@ -80,6 +81,7 @@ li {
   background-color: #AF4510;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 34px;
 }
 
 .slider:before {
@@ -92,6 +94,7 @@ li {
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 50%;
 }
 
 .inputOne:checked + .slider {
@@ -99,7 +102,9 @@ li {
 }
 
 .inputOne:focus + .slider {
-  box-shadow: 0 0 1px #38416D;
+  box-shadow: 0 0 0 3px var(--darkBlue), inset 0 0 0 2px var(--darkBlue);
+  outline: 2px solid var(--darkBlue);
+  outline-offset: 2px;
 }
 
 .inputTwo:checked + .slider {
@@ -107,7 +112,9 @@ li {
 }
 
 .inputTwo:focus + .slider {
-  box-shadow: 0 0 1px #38416D;
+  box-shadow: 0 0 0 3px var(--darkBlue), inset 0 0 0 2px var(--darkBlue);
+  outline: 2px solid var(--darkBlue);
+  outline-offset: 2px;
 }
 
 input:checked + .slider:before {
@@ -135,7 +142,8 @@ fieldset {
   border-bottom: grey 2px dotted;
   display: flex;
   justify-content: space-between;
-  padding-top: 5px;
+  padding: 10px;
+  align-items: center;
 }
 
 button {
@@ -158,6 +166,11 @@ button:hover {
   border: solid 2px #12195C;
 }
 
+button:focus {
+  outline: 2px solid var(--darkBlue);
+  outline-offset: 2px;
+}
+
 .floaty {
   float: right;
 }
@@ -172,6 +185,19 @@ button:hover {
   text-align: center;
   padding: 10px;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 @media screen and (max-width: 800px) {
   .displayGroup {
     flex-wrap: wrap;
@@ -192,191 +218,199 @@ button:hover {
  <fieldset>
   <legend style="display:none;"></legend>
    <div class="formContainer">
-    <div class="checkContainer">
+    <div class="checkContainer" role="presentation">
         <h3>When I feel stressed I tend to</h3><h3 class="floaty">NO / YES</h3>
     </div>
   <!--Check 1-->
      <div class="checkContainer">
-     <p label="question1">Worry and ruminate</p>
-      <label class="switch">
+     <label for="emotionalOne">Worry and ruminate</label>
+      <span class="switch">
         <input
+          id="emotionalOne"
           class="inputOne"
           type="checkbox"
           role="switch"
-          name=one
+          aria-checked="false"
+          name="one"
           autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
   <!--Check 2-->
    <div class="checkContainer">
-   <p>Feel overwhelmed and/or unable to concentrate</p>
-     <label class="switch">
+   <label for="emotionalTwo">Feel overwhelmed and/or unable to concentrate</label>
+     <span class="switch">
         <input 
+          id="emotionalTwo"
           class="inputOne"
           type="checkbox"
           role="switch"
-          name=two
+          aria-checked="false"
+          name="two"
           autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
   <!--Check 3-->
    <div class="checkContainer">
-   <p>Feel restless, impatient or irritable</p>
-     <label class="switch">
+   <label for="emotionalThree">Feel restless, impatient or irritable</label>
+     <span class="switch">
         <input 
+        id="emotionalThree"
         class="inputOne"
         type="checkbox"
         role="switch"
-        name=three
+        aria-checked="false"
+        name="three"
         autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
   <!--Check 4-->
    <div class="checkContainer">
-   <p>Become irrational</p>
-     <label class="switch">
+   <label for="emotionalFour">Become irrational</label>
+     <span class="switch">
         <input
+        id="emotionalFour"
         class="inputOne"
         type="checkbox"
         role="switch"
-        name=four
+        aria-checked="false"
+        name="four"
         autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
   <!--Check 5-->
    <div class="checkContainer">
-   <p>Feel depressed and/or hopeless</p>
-     <label class="switch">
+   <label for="emotionalFive">Feel depressed and/or hopeless</label>
+     <span class="switch">
         <input
+        id="emotionalFive"
         class="inputOne"
         type="checkbox"
         role="switch"
-        name=five
+        aria-checked="false"
+        name="five"
         autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
    <!--Check 6-->
    <div class="checkContainer">
-   <p>Overreact and/or react emotionally</p>
-     <label class="switch">
+   <label for="emotionalSix">Overreact and/or react emotionally</label>
+     <span class="switch">
         <input
+        id="emotionalSix"
         class="inputOne"
         type="checkbox"
         role="switch"
-        name=six
+        aria-checked="false"
+        name="six"
         autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
    </div>
-  <p style="display:none;"><output name=result id="numericalResult"></output></p>
+  <p style="display:none;"><output name="result" id="numericalResult" aria-live="polite" aria-label="Your emotional stress score"></output></p>
  </fieldset>
- <script>
-  calculate(document.forms.pricecalc);
- </script>
 </form>
-<form name="Behavioural Stress Options" onsubmit="return false" onchange="calculate(this)">
+<form name="Behavioural Stress Options" onsubmit="return false" onchange="calculate2(this)">
  <fieldset>
   <legend style="display:none;"></legend>
    <div class="formContainer">
   <!--Check 1-->
      <div class="checkContainer">
-     <p label="question1">Rely on medication, drugs or alcohol to cope</p>
-      <label class="switch">
+     <label for="behavioralOne">Rely on medication, drugs or alcohol to cope</label>
+      <span class="switch">
         <input
+          id="behavioralOne"
           class="inputTwo"
           type="checkbox"
           role="switch"
-          name=one
+          aria-checked="false"
+          name="one"
           autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
   <!--Check 2-->
    <div class="checkContainer">
-   <p>Talk quickly and/or loudly</p>
-     <label class="switch">
+   <label for="behavioralTwo">Talk quickly and/or loudly</label>
+     <span class="switch">
         <input 
+          id="behavioralTwo"
           class="inputTwo"
           type="checkbox"
           role="switch"
-          name=two
+          aria-checked="false"
+          name="two"
           autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
   <!--Check 3-->
    <div class="checkContainer">
-   <p>Become forgetful and/or more accident prone</p>
-     <label class="switch">
+   <label for="behavioralThree">Become forgetful and/or more accident prone</label>
+     <span class="switch">
         <input 
+        id="behavioralThree"
         class="inputTwo"
         type="checkbox"
         role="switch"
-        name=three
+        aria-checked="false"
+        name="three"
         autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
   <!--Check 4-->
    <div class="checkContainer">
-   <p>Neglect my personal appearance</p>
-     <label class="switch">
+   <label for="behavioralFour">Neglect my personal appearance</label>
+     <span class="switch">
         <input
+        id="behavioralFour"
         class="inputTwo"
         type="checkbox"
         role="switch"
-        name=four
+        aria-checked="false"
+        name="four"
         autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
   <!--Check 5-->
    <div class="checkContainer">
-   <p>Notice changes to my appetite or eating patterns</p>
-     <label class="switch">
+   <label for="behavioralFive">Notice changes to my appetite or eating patterns</label>
+     <span class="switch">
         <input
+        id="behavioralFive"
         class="inputTwo"
         type="checkbox"
         role="switch"
-        name=five
+        aria-checked="false"
+        name="five"
         autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
  <!--Check 6-->
    <div class="checkContainer">
-   <p>Shut myself off to others</p>
-     <label class="switch">
+   <label for="behavioralSix">Shut myself off to others</label>
+     <span class="switch">
         <input
+        id="behavioralSix"
         class="inputTwo"
         type="checkbox"
         role="switch"
-        name=six
+        aria-checked="false"
+        name="six"
         autocomplete="off">
-       <span class="slider round"></span></label></div>
+       <span class="slider round" aria-hidden="true"></span></span></div>
    </div>
-  <p  style="display:none;">Total:<output name=result id="numericalResultTwo"></output></p>
+  <p style="display:none;">Total:<output name="result" id="numericalResultTwo" aria-live="polite" aria-label="Your behavioural stress score"></output></p>
  </fieldset>
-
- <script>
-  calculate(document.forms.pricecalc);
-    calculate2(document.forms.answerscalc);
- </script>
 </form>
 </div>
-<button onclick="submitNewData(); formOne()">Submit
-      </button>
+<button onclick="submitNewData(); formOne()" aria-label="Submit your responses and view results">Submit</button>
   </div>
       
       <div class="displayGroup">
       <section class="canvasCard">
-        <canvas width="500" height="400" id="myChart" class="canvasGraph">
+        <canvas width="500" height="400" id="myChart" class="canvasGraph" aria-label="Pie chart showing emotional and behavioural stress levels">
         </canvas>
     </section>
     <div class="resultsGroup">
-  <p id="results" class="resultP"></p>
-<!--<p id="resultsTwo"></p>  -->
+  <p id="results" class="resultP" role="status" aria-live="assertive" aria-label="Your stress assessment result"></p>
 </div>
   </div>
-  <!--
-<button onclick="formOne(); formTwo()">Results</button>-->
 
 </div>
 </body>
 
 <script>
-  
 //first variable defines what the points are labeled with
 var labels = ["Emotional stress", "Behavioural stress"];
 //second variable is our array - this is what we need to push our values to.
 let yValues = [0, 0];
-//Test variable to change the map area from that horrible grey
-
-
 
 const chart = new Chart("myChart", {
   type: "pie",
@@ -385,7 +419,7 @@ const chart = new Chart("myChart", {
     datasets: [{
       backgroundColor: [
       '#38416D',
-      '#5DC8B9' //TODO: connect colour of area and 'on' toggle in inputs
+      '#5DC8B9'
     ],
       data: yValues,
       label: 'Values',
@@ -401,7 +435,6 @@ options: {
         position: 'top',
         labels: {
           color: 'black',
-                    // This more specific font property overrides the global property
                     font: {
                         size: 20,
                     }
@@ -411,7 +444,6 @@ options: {
         display: true,
         text: 'Reflections',
          color: 'black',
-                    // This more specific font property overrides the global property
                     font: {
                         size: 20,
                     }
@@ -419,8 +451,6 @@ options: {
     }
   },
 });
-
-//Better idea - function is called when all the inputs have been updated and the user clicks the submit button. The submit function pulls the input data from the 5 ids, and replaces a default array w them. would updating call them all again? maybe
 
 function submitNewData() {
   var x = Number(document.getElementById("numericalResult").value);
@@ -430,73 +460,93 @@ function submitNewData() {
  yValues.splice(1, 1, y);
 
   console.log(yValues);
-
   chart.update();
 }
 
+function calculate(form) {
+  let score = 0;
+  const emotionalInputs = ['emotionalOne', 'emotionalTwo', 'emotionalThree', 'emotionalFour', 'emotionalFive', 'emotionalSix'];
   
+  emotionalInputs.forEach(id => {
+    const checkbox = document.getElementById(id);
+    if (checkbox.checked) {
+      score += 1;
+      checkbox.setAttribute('aria-checked', 'true');
+    } else {
+      checkbox.setAttribute('aria-checked', 'false');
+    }
+  });
+  
+  document.getElementById("numericalResult").value = score;
+}
+
 function calculate2(form) {
-   var answers = 0;
-   if (form.elements.one.checked)
-     answers += 1;
-   if (form.elements.two.checked)
-     answers += 1;
-   if (form.elements.three.checked)
-     answers += 1;
-   if (form.elements.four.checked)
-     answers += 1;
-   if (form.elements.five.checked)
-     price += 1;
-   if (form.elements.six.checked)
-     answers += 1;
-   form.elements.result.value = answers;
-   console.log(answers);
- }
- 
- function calculate(form) {
-   var price = 0;
-   if (form.elements.one.checked)
-     price += 1;
-   if (form.elements.two.checked)
-     price += 1;
-   if (form.elements.three.checked)
-     price += 1;
-   if (form.elements.four.checked)
-     price += 1;
-   if (form.elements.five.checked)
-     price += 1;
-   if (form.elements.six.checked)
-     price += 1;
-   form.elements.result.value = price;
- }
- function formOne() {
+  let score = 0;
+  const behavioralInputs = ['behavioralOne', 'behavioralTwo', 'behavioralThree', 'behavioralFour', 'behavioralFive', 'behavioralSix'];
+  
+  behavioralInputs.forEach(id => {
+    const checkbox = document.getElementById(id);
+    if (checkbox.checked) {
+      score += 1;
+      checkbox.setAttribute('aria-checked', 'true');
+    } else {
+      checkbox.setAttribute('aria-checked', 'false');
+    }
+  });
+  
+  document.getElementById("numericalResultTwo").value = score;
+}
+
+function initKeyboardToggle() {
+  const emotionalInputIds = ['emotionalOne', 'emotionalTwo', 'emotionalThree', 'emotionalFour', 'emotionalFive', 'emotionalSix'];
+  const behavioralInputIds = ['behavioralOne', 'behavioralTwo', 'behavioralThree', 'behavioralFour', 'behavioralFive', 'behavioralSix'];
+  
+  emotionalInputIds.forEach(id => {
+    const checkbox = document.getElementById(id);
+    checkbox.addEventListener('keydown', function(event) {
+      if (event.code === 'Space' || event.code === 'Enter') {
+        event.preventDefault();
+        checkbox.checked = !checkbox.checked;
+        const changeEvent = new Event('change', { bubbles: true });
+        checkbox.dispatchEvent(changeEvent);
+        calculate(document.forms['Emotional Stress Options']);
+      }
+    });
+  });
+
+  behavioralInputIds.forEach(id => {
+    const checkbox = document.getElementById(id);
+    checkbox.addEventListener('keydown', function(event) {
+      if (event.code === 'Space' || event.code === 'Enter') {
+        event.preventDefault();
+        checkbox.checked = !checkbox.checked;
+        const changeEvent = new Event('change', { bubbles: true });
+        checkbox.dispatchEvent(changeEvent);
+        calculate2(document.forms['Behavioural Stress Options']);
+      }
+    });
+  });
+}
+
+function formOne() {
   var x = Number(document.getElementById("numericalResult").value);
   var y = document.getElementById("results");
   var z = Number(document.getElementById("numericalResultTwo").value);
-  var j = document.getElementById("resultsTwo");
   console.log(x);
   console.log(z);
-    j.innerHTML = y.innerHTML = 'You scored ' + z + ' for behavioural stress and ' + x + ' for emotional stress.<br><br>Scroll down and press continue to move on.';
+  
+  const message = 'You scored ' + z + ' for behavioural stress and ' + x + ' for emotional stress.<br><br>Scroll down and press continue to move on.';
+  y.innerHTML = message;
+  y.setAttribute('role', 'status');
+  y.setAttribute('aria-live', 'assertive');
 }
 
-//  function formTwo() {
-//   var x = Number(document.getElementById("numericalResultTwo").value);
-//   var y = document.getElementById("resultsTwo");
-//   console.log(x);
-//   if (x === 1 || x === 2) {
-//      y.innerHTML = 'Your behavioural stress levels are equal to or lower than 2';
-//   } else if (x === 3) {
-//     y.innerHTML = 'result is 3';
-//   } else if (x === 4) {
-//     y.innerHTML = 'result is 4';
-//   } else { (x === 5) 
-//     y.innerHTML = 'result is 5';
-//   }
-// }
-
-//  yValues[0] = x; // Make sure it's a number
- // Chart.data.datasets[0].data = yValues;
- //TODO: refactor to use switch? with range declared elsewhere
+// Initialize keyboard toggle and calculations when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  initKeyboardToggle();
+  calculate(document.forms['Emotional Stress Options']);
+  calculate2(document.forms['Behavioural Stress Options']);
+});
 </script>
 </html>
 

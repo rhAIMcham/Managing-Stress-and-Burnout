@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   background-color: white;
 }
 
@@ -66,6 +66,7 @@ li {
   background-color: #AF4510;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 34px;
 }
 
 .slider:before {
@@ -78,14 +79,17 @@ li {
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color:  var(--darkBlue);
+  background-color: var(--darkBlue);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px  var(--darkBlue);
+  box-shadow: 0 0 0 3px var(--darkBlue), inset 0 0 0 2px var(--darkBlue);
+  outline: 2px solid var(--darkBlue);
+  outline-offset: 2px;
 }
 
 input:checked + .slider:before {
@@ -112,7 +116,8 @@ fieldset {
   border-bottom: grey 2px dotted;
   display: flex;
   justify-content: space-between;
-  padding-top: 5px;
+  padding: 10px;
+  align-items: center;
 }
 
 button {
@@ -134,6 +139,11 @@ button:hover {
   background-color: var(--lightBlue);
   color: #12195C;
   border: solid 2px #12195C;
+}
+
+button:focus {
+  outline: 2px solid var(--darkBlue);
+  outline-offset: 2px;
 }
 
 .buttonBar {
@@ -161,6 +171,19 @@ legend {
 .cardResults {
   display: none;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
    @media screen and (max-width: 800px) {
 .buttonBar {
   display: flex;
@@ -185,6 +208,7 @@ display: none;
 }
 .containment {
   width: auto;
+}
 #results {
   display: none;
 }
@@ -208,7 +232,7 @@ display: none;
      padding: 30px 20px;
    }
 }
- }
+
   </style>
 </head>
 <body>
@@ -221,176 +245,151 @@ display: none;
   <legend>Employment Stress</legend>
 
    <div class="formContainer">
-     <div class="checkContainer">
+     <div class="checkContainer" role="presentation">
           
   <h4>Indicate which of the below are key triggers for you.</h4>
        <h4>NO / YES</h4>
      </div>
   <!--Check 1-->
      <div class="checkContainer">
-     <p label="question1">Unrealistic deadlines or excessive workload
-    </p>
-   <label class="switch">
+     <label for="one">Unrealistic deadlines or excessive workload</label>
+   <span class="switch">
         <input
+          id="one"
           type="checkbox"
           role="switch"
-          name=one
-          autocomplete="off"
-          unchecked>
-     <span class="slider round"></span></label></div>
+          aria-checked="false"
+          name="one"
+          autocomplete="off">
+     <span class="slider round" aria-hidden="true"></span></span></div>
    
   <!--Check 2-->
    <div class="checkContainer">
-   <p>Lack of job security or fear of redundancy
-     </p>
-   <label class="switch">
+   <label for="two">Lack of job security or fear of redundancy</label>
+   <span class="switch">
         <input 
+          id="two"
           type="checkbox"
           role="switch"
-          name=two
-          autocomplete="off"
-          unchecked>
-       <span class="slider round"></span></label></div>
+          aria-checked="false"
+          name="two"
+          autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
   
    <!--Check 3-->
    <div class="checkContainer">
-   <p>Poor management or unclear leadership direction
-   </p>
-      <label class="switch">
+   <label for="three">Poor management or unclear leadership direction</label>
+      <span class="switch">
         <input 
+        id="three"
         type="checkbox"
         role="switch"
-        name=three
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="three"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
   
    <!--Check 4-->
    <div class="checkContainer">
-   <p>Micromanagement or lack of autonomy
-     </p>
-   <label class="switch">
+   <label for="four">Micromanagement or lack of autonomy</label>
+   <span class="switch">
         <input
+        id="four"
         type="checkbox"
         role="switch"
-        name=four
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="four"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
   
    <!--Check 5-->
    <div class="checkContainer">
-   <p>Conflicts with colleagues or managers
-     </p>
-     <label class="switch">
+   <label for="five">Conflicts with colleagues or managers</label>
+     <span class="switch">
         <input
+        id="five"
         type="checkbox"
         role="switch"
-        name=five
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="five"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
        
    <!--Check 6-->
    <div class="checkContainer">
-   <p>Lack of recognition or feeling undervalued
-     </p>
-     <label class="switch">
+   <label for="six">Lack of recognition or feeling undervalued</label>
+     <span class="switch">
         <input
+        id="six"
         type="checkbox"
         role="switch"
-        name=six
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="six"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
        
    <!--Check 7-->
    <div class="checkContainer">
-   <p>Limited career progression or unclear development paths</p>
-     <label class="switch">
+   <label for="seven">Limited career progression or unclear development paths</label>
+     <span class="switch">
         <input
+        id="seven"
         type="checkbox"
         role="switch"
-        name=seven
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="seven"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
        
    <!--Check 8-->
    <div class="checkContainer">
-   <p>Unmanageable work-life balance, e.g., working long hours</p>
-     <label class="switch">
+   <label for="eight">Unmanageable work-life balance, e.g., working long hours</label>
+     <span class="switch">
         <input
+        id="eight"
         type="checkbox"
         role="switch"
-        name=eight
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="eight"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
           
    <!--Check 9-->
    <div class="checkContainer">
-   <p>Constant change in priorities, direction, or structure</p>
-     <label class="switch">
+   <label for="nine">Constant change in priorities, direction, or structure</label>
+     <span class="switch">
         <input
+        id="nine"
         type="checkbox"
         role="switch"
-        name=nine
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
+        aria-checked="false"
+        name="nine"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
           
    <!--Check 10-->
    <div class="checkContainer">
-   <p>High-stakes responsibility with little support or resources</p>
-     <label class="switch">
+   <label for="ten">High-stakes responsibility with little support or resources</label>
+     <span class="switch">
         <input
+        id="ten"
         type="checkbox"
         role="switch"
-        name=ten
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>
-   
-     <!--Check 11-->
-     <!--
-   <div class="checkContainer">
-   <p>I don’t seem to have much fun anymore</p>
-     <label class="switch">
-        <input
-        type="checkbox"
-        role="switch"
-        name=eleven
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>-->
-   
-      <!--Check 12-->
-   <!--<div class="checkContainer">
-     <p>I find it more and more difficult to see people socially</p>
-     <label class="switch">
-        <input
-        type="checkbox"
-        role="switch"
-        name=twelve
-        autocomplete="off"
-        unchecked>
-       <span class="slider round"></span></label></div>-->
+        aria-checked="false"
+        name="ten"
+        autocomplete="off">
+       <span class="slider round" aria-hidden="true"></span></span></div>
    </div>
   
-  <p class="cardResults">Total:<output name=result id="numericalResult"></output></p>
+  <p class="cardResults">Total: <output name="result" id="numericalResult" aria-live="polite" aria-label="Your employment stress score">0</output></p>
  </fieldset>
-  
- <script>
-  calculate(document.forms.scorecalc);
- </script>
 </form>
 
 <div class="buttonBar">
-<button id="hideMe" onclick="show(); hideButton()">Results</button>
+<button id="hideMe" onclick="show(); hideButton()" aria-label="Submit and view your results">Results</button>
 </div>
-<p id="results"></p>
-  <p class="instruction">Click the 'X' button in the top right to close this window.</p>
+<p id="results" role="status" aria-live="assertive" aria-label="Your stress assessment result"></p>
+  <p class="instruction">Press <kbd>Escape</kbd> or click the 'X' button in the top right to close this window.</p>
   </div>
 </body>
 <script>
@@ -401,32 +400,69 @@ function calculate(form) {
   ];
   let score = 0;
   checkNames.forEach(name => {
-    if (form.elements[name].checked) score += 1;
+    const checkbox = form.elements[name];
+    if (checkbox.checked) {
+      score += 1;
+      checkbox.setAttribute('aria-checked', 'true');
+    } else {
+      checkbox.setAttribute('aria-checked', 'false');
+    }
   });
   form.elements.result.value = score;
-}  
+}
 
-//function hideButton() {
-//var y = document.getElementById("labelText");
-//    y.classList.toggle("hiddenButton");
-//}
-//TODO: Make it remove the labelText permanently - maybe I should just apply the results to the label text!?
+function initKeyboardToggle() {
+  const checkNames = [
+    'one', 'two', 'three', 'four', 'five', 'six',
+    'seven', 'eight', 'nine', 'ten'
+  ];
+  const form = document.forms['Employment Stress'];
+  
+  checkNames.forEach(name => {
+    const checkbox = form.elements[name];
+    checkbox.addEventListener('keydown', function(event) {
+      if (event.code === 'Space' || event.code === 'Enter') {
+        event.preventDefault();
+        checkbox.checked = !checkbox.checked;
+        const changeEvent = new Event('change', { bubbles: true });
+        checkbox.dispatchEvent(changeEvent);
+        calculate(form);
+      }
+    });
+  });
+}
 
- function show() {
+function show() {
   var x = Number(document.getElementById("numericalResult").value);
   var y = document.getElementById("results");
   var z = document.getElementById("labelText");
   console.log(x);
 
+  let message = '';
   if (x <= 3) {
-     y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. It seems that employment stress triggers are under control!';
+     message = 'You scored ' + x + '0%. It seems that employment stress triggers are under control!';
   } else if (x > 3 && x <= 5) {
-    y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Employment stress is present but not overwhelming.';
+    message = 'You scored ' + x + '0%. Employment stress is present but not overwhelming.';
   } else if (x > 5 && x < 9) {
-   y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Employment stress is becoming a significant issue.';
+    message = 'You scored ' + x + '0%. Employment stress is becoming a significant issue.';
   } else if (x >= 9) {
-    y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Employment stress is critically high.';
+    message = 'You scored ' + x + '0%. Employment stress is critically high.';
   }
+  
+  y.innerHTML = z.innerHTML = message;
+  y.setAttribute('role', 'status');
+  y.setAttribute('aria-live', 'assertive');
 }
+
+// Handle Escape key to close window
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    window.close();
+  }
+});
+
+// Initialize keyboard toggle when page loads
+document.addEventListener('DOMContentLoaded', initKeyboardToggle);
+calculate(document.forms['Employment Stress']);
 </script>
 </html>
