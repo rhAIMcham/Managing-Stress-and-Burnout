@@ -21,7 +21,7 @@
 }
 
 body {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: sans-serif;
   background-color: white;
 }
 
@@ -63,7 +63,6 @@ li {
   background-color: #AF4510;
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 34px;
 }
 
 .slider:before {
@@ -76,7 +75,6 @@ li {
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 50%;
 }
 
 input:checked + .slider {
@@ -84,8 +82,8 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 0 3px var(--darkBlue), inset 0 0 0 2px var(--darkBlue);
-  outline: 2px solid var(--darkBlue);
+  box-shadow: 0 0 0 3px var(--teal), inset 0 0 0 2px var(--teal);
+  outline: 2px solid var(--teal);
   outline-offset: 2px;
 }
 
@@ -94,7 +92,6 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
@@ -113,8 +110,7 @@ fieldset {
   border-bottom: grey 2px dotted;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  align-items: center;
+  padding-top: 5px;
 }
 
 button {
@@ -136,11 +132,6 @@ button:hover {
   background-color: var(--lightBlue);
   color: #12195C;
   border: solid 2px #12195C;
-}
-
-button:focus {
-  outline: 2px solid var(--darkBlue);
-  outline-offset: 2px;
 }
 
 .buttonBar {
@@ -172,19 +163,6 @@ legend {
 .cardResults {
   display: none;
 }
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
    @media screen and (max-width: 800px) {
 .buttonBar {
   display: flex;
@@ -212,7 +190,6 @@ display: none;
 }
 .containment {
   width: auto;
-}
 #results {
   display: none;
 }
@@ -233,7 +210,7 @@ display: none;
      padding: 30px 20px;
    }
 }
-
+ }
   </style>
 </head>
 <body>
@@ -246,152 +223,152 @@ display: none;
   <legend>Relationship Stress</legend>
 
    <div class="formContainer">
-     <div class="checkContainer" role="presentation">
+     <div class="checkContainer">
           
   <h4>Indicate which of the below are key triggers for you.</h4>
        <h4>NO / YES</h4>
      </div>
   <!--Check 1-->
      <div class="checkContainer">
-     <label for="one">Frequent arguments or tension with a partner, sibling, parent or friend</label>
-   <span class="switch">
+     <p label="question1">Frequent arguments or tension with a partner, sibling, parent or friend
+    </p>
+   <label class="switch">
         <input
-          id="one"
           type="checkbox"
           role="switch"
-          aria-checked="false"
-          name="one"
-          autocomplete="off">
-     <span class="slider round" aria-hidden="true"></span></span></div>
+          name=one
+          autocomplete="off"
+          unchecked>
+     <span class="slider round"></span></label></div>
    
   <!--Check 2-->
    <div class="checkContainer">
-   <label for="two">Breakdowns in communication across close relationships (e.g. being misunderstood or ignored)</label>
-   <span class="switch">
+   <p>Breakdowns in communication across close relationships (e.g. being misunderstood or ignored)
+     </p>
+   <label class="switch">
         <input 
-          id="two"
           type="checkbox"
           role="switch"
-          aria-checked="false"
-          name="two"
-          autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+          name=two
+          autocomplete="off"
+          unchecked>
+       <span class="slider round"></span></label></div>
   
    <!--Check 3-->
    <div class="checkContainer">
-   <label for="three">Trust issues within romantic relationships or long-term friendships</label>
-      <span class="switch">
+   <p>Trust issues within romantic relationships or long-term friendships
+   </p>
+      <label class="switch">
         <input 
-        id="three"
         type="checkbox"
         role="switch"
-        aria-checked="false"
-        name="three"
-        autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+        name=three
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
   
    <!--Check 4-->
    <div class="checkContainer">
-   <label for="four">Caring responsibilities for ageing parents or unwell family members</label>
-   <span class="switch">
+   <p>Caring responsibilities for ageing parents or unwell family members
+     </p>
+   <label class="switch">
         <input
-        id="four"
         type="checkbox"
         role="switch"
-        aria-checked="false"
-        name="four"
-        autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+        name=four
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
   
    <!--Check 5-->
    <div class="checkContainer">
-   <label for="five">Feeling unsupported by family or friends during difficult times</label>
-     <span class="switch">
+   <p>Feeling unsupported by family or friends during difficult times
+     </p>
+     <label class="switch">
         <input
-        id="five"
         type="checkbox"
         role="switch"
-        aria-checked="false"
-        name="five"
-        autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+        name=five
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
        
    <!--Check 6-->
    <div class="checkContainer">
-   <label for="six">Conflict over shared responsibilities, such as parenting or finances</label>
-     <span class="switch">
+   <p>Conflict over shared responsibilities, such as parenting or finances
+     </p>
+     <label class="switch">
         <input
-        id="six"
         type="checkbox"
         role="switch"
-        aria-checked="false"
-        name="six"
-        autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+        name=six
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
        
    <!--Check 7-->
    <div class="checkContainer">
-   <label for="seven">Social isolation or feeling excluded from social groups</label>
-     <span class="switch">
+   <p>Social isolation or feeling excluded from social groups</p>
+     <label class="switch">
         <input
-        id="seven"
         type="checkbox"
         role="switch"
-        aria-checked="false"
-        name="seven"
-        autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+        name=seven
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
        
    <!--Check 8-->
    <div class="checkContainer">
-   <label for="eight">Estrangement or unresolved past conflict with a family member</label>
-     <span class="switch">
+   <p>Estrangement or unresolved past conflict with a family member</p>
+     <label class="switch">
         <input
-        id="eight"
         type="checkbox"
         role="switch"
-        aria-checked="false"
-        name="eight"
-        autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+        name=eight
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
           
    <!--Check 9-->
    <div class="checkContainer">
-   <label for="nine">Pressure to meet family or cultural expectations around life choices</label>
-     <span class="switch">
+   <p>Pressure to meet family or cultural expectations around life choices</p>
+     <label class="switch">
         <input
-        id="nine"
         type="checkbox"
         role="switch"
-        aria-checked="false"
-        name="nine"
-        autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+        name=nine
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
           
    <!--Check 10-->
    <div class="checkContainer">
-   <label for="ten">Navigating complex family dynamics, e.g. blended families, divorce, differing values etc</label>
-     <span class="switch">
+   <p>Navigating complex family dynamics, e.g. blended families, divorce, differing values etc</p>
+     <label class="switch">
         <input
-        id="ten"
         type="checkbox"
         role="switch"
-        aria-checked="false"
-        name="ten"
-        autocomplete="off">
-       <span class="slider round" aria-hidden="true"></span></span></div>
+        name=ten
+        autocomplete="off"
+        unchecked>
+       <span class="slider round"></span></label></div>
    </div>
   
-  <p class="cardResults">Total: <output name="result" id="numericalResult" aria-live="polite" aria-label="Your relationship stress score">0</output></p>
+  <p class="cardResults">Total:<output name=result id="numericalResult"></output></p>
  </fieldset>
+  
+ <script>
+  calculate(document.forms.scorecalc);
+ </script>
 </form>
 
 <div class="buttonBar">
-<button id="hideMe" onclick="show(); hideButton()" aria-label="Submit and view your results">Results</button>
+<button id="hideMe" onclick="show(); hideButton()">Results</button>
 </div>
-<p id="results" role="status" aria-live="assertive" aria-label="Your stress assessment result"></p>
+<p id="results"></p>
 
-  <p class="instruction">Press <kbd>Escape</kbd> or click the 'X' button in the top right to close this window.</p>
+  <p class="instruction">Click the 'X' button in the top right to close this window.</p>
   </div>
 </body>
 <script>
@@ -402,69 +379,32 @@ function calculate(form) {
   ];
   let score = 0;
   checkNames.forEach(name => {
-    const checkbox = form.elements[name];
-    if (checkbox.checked) {
-      score += 1;
-      checkbox.setAttribute('aria-checked', 'true');
-    } else {
-      checkbox.setAttribute('aria-checked', 'false');
-    }
+    if (form.elements[name].checked) score += 1;
   });
   form.elements.result.value = score;
-}
+}  
 
-function initKeyboardToggle() {
-  const checkNames = [
-    'one', 'two', 'three', 'four', 'five', 'six',
-    'seven', 'eight', 'nine', 'ten'
-  ];
-  const form = document.forms['Relationship Stress'];
-  
-  checkNames.forEach(name => {
-    const checkbox = form.elements[name];
-    checkbox.addEventListener('keydown', function(event) {
-      if (event.code === 'Space' || event.code === 'Enter') {
-        event.preventDefault();
-        checkbox.checked = !checkbox.checked;
-        const changeEvent = new Event('change', { bubbles: true });
-        checkbox.dispatchEvent(changeEvent);
-        calculate(form);
-      }
-    });
-  });
-}
+//function hideButton() {
+//var y = document.getElementById("labelText");
+//    y.classList.toggle("hiddenButton");
+//}
+//TODO: Make it remove the labelText permanently - maybe I should just apply the results to the label text!?
 
-function show() {
+ function show() {
   var x = Number(document.getElementById("numericalResult").value);
   var y = document.getElementById("results");
   var z = document.getElementById("labelText");
   console.log(x);
 
-  let message = '';
   if (x <= 3) {
-     message = 'You scored ' + x + '0%. It seems that relationship stress triggers are under control!';
+     y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. It seems that relationship stress triggers are under control!';
   } else if (x > 3 && x <= 5) {
-    message = 'You scored ' + x + '0%. Relationship stress is present but not overwhelming.';
+    y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Relationship stress is present but not overwhelming.';
   } else if (x > 5 && x < 9) {
-    message = 'You scored ' + x + '0%. Relationship stress is becoming a significant issue.';
+   y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Relationship stress is becoming a significant issue.';
   } else if (x >= 9) {
-    message = 'You scored ' + x + '0%. Relationship stress is critically high.';
+    y.innerHTML = z.innerHTML = 'You scored ' + x + '0%. Relationship stress is critically high.';
   }
-  
-  y.innerHTML = z.innerHTML = message;
-  y.setAttribute('role', 'status');
-  y.setAttribute('aria-live', 'assertive');
 }
-
-// Handle Escape key to close window
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
-    window.close();
-  }
-});
-
-// Initialize keyboard toggle when page loads
-document.addEventListener('DOMContentLoaded', initKeyboardToggle);
-calculate(document.forms['Relationship Stress']);
 </script>
 </html>
